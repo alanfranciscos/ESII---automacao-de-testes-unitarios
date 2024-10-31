@@ -63,3 +63,25 @@ class TestServiceUser:
         result = service.add_user(name=name, job=job)
 
         assert result_expect == result
+
+    def test_update_user_success(self):
+        name = "Leonardo"
+        job = "TechLead"
+        new_job = "Dev"
+        result_expect = "Profissão atualizada com sucesso"
+        service = ServiceUser()
+
+        service.add_user(name=name, job=job)
+        result = service.update_user(name=name, new_job=new_job)
+
+        assert result_expect == result
+
+    def test_update_user_not_found(self):
+        name = "Leonardo"
+        new_job = "Dev"
+        result_expect = "Usuario não encontrado"
+        service = ServiceUser()
+
+        result = service.update_user(name=name, new_job=new_job)
+
+        assert result_expect == result
