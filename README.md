@@ -32,6 +32,7 @@ python -m unittest -v
 
 ```bash
 pytest .
+python -m pytest -vv tests/
 ```
 
 ## Test Coverage
