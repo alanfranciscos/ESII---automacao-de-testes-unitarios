@@ -105,3 +105,23 @@ class TestServiceUser:
         result = service.del_user(name=name)
 
         assert result_expect == result
+
+    def test_select_user_success(self):
+        name = "Leonardo"
+        job = "TechLead"
+        result_expect = "Profissão: TechLead"
+        service = ServiceUser()
+
+        service.add_user(name=name, job=job)
+        result = service.select_user(name=name)
+
+        assert result_expect == result
+
+    def test_select_user_not_found(self):
+        name = "Leonardo"
+        result_expect = "Usuario não encontrado"
+        service = ServiceUser()
+
+        result = service.select_user(name=name)
+
+        assert result_expect == result
